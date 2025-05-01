@@ -1,0 +1,63 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  thevaperzden-website:
+    # Build the image using the Dockerfile in the current directory (.)
+    build: .
+    # Optional: You can tag the built image
+    image: thevaperzden-website:latest
+    container_name: thevaperzden-website
+    restart: unless-stopped
+    # Run as default user specified in Dockerfile (node)
+
+    # Load environment variables from .env file if present
+    # Useful for NEXT_PUBLIC_* variables or other runtime configs
+    env_file:
+      - .env
+    # Set default port for Next.js (can be overridden by .env)
+    environment:
+      - PORT=3000
+      # Add other runtime environment variables if needed
+      # e.g., - DATABASE_URL=...
+
+    ports:
+      # Map host port (left side) to container port (right side - 3000)
+      # Use the PORT variable pattern from your example, defaulting host to 3000 if not set
+      - "${PORT:-3000}:3000"
+
+    volumes:
+      # Persist logs using the appdata structure from your example
+      # Ensure your Next.js app writes logs to /app/logs if you need persistence
+      - /mnt/user/appdata/thevaperzden-website/logs:/app/logs
+      # --- IMPORTANT ---
+      # We DO NOT mount source code or node_modules here like in your bot example.
+      # The optimized application code and dependencies are already baked into
+      # the Docker image by the multi-stage build process in the Dockerfile.
+      # Only mount volumes for data you need to PERSIST outside the container (like logs).
+
+    networks:
+      # Connect to your existing external network
+      - proxynet
+
+    # Set resource limits (adjust based on monitoring)
+    deploy:
+      resources:
+        limits:
+          memory: 512M # Max memory the container can use
+        reservations:
+          memory: 128M # Memory guaranteed to the container
+
+    # Health check to see if the Next.js server is responding
+    healthcheck:
+      # Checks if the server responds to HTTP requests on port 3000
+      # You might need to adjust the path '/' if your app's root requires auth or redirects
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 1m       # Check every minute
+      timeout: 10s       # Wait max 10 seconds for response
+      retries: 3         # Try 3 times before marking as unhealthy
+      start_period: 30s  # Wait 30 seconds after start before first check
+
+networks:
+  proxynet:
+    external: true # Assumes 'proxynet' is defined elsewhere or already exists 

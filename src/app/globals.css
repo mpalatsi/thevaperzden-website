@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Default Body Styles */
+body {
+    font-family: var(--font-roboto), sans-serif; /* Use Roboto variable */
+    line-height: 1.6;
+    color: #333; /* Dark text for readability */
+    background-color: #FFFFFF; /* White background */
+    /* Add anti-aliasing for smoother fonts if desired */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Basic link styling (can be overridden) */
+a {
+    color: inherit; /* Inherit color by default */
+    text-decoration: none; /* No underline by default */
+}
+
+/* Add other global styles here if needed */
+
+/* Apply Poppins to headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), sans-serif; /* Use Poppins variable */
+  font-weight: 700; /* Default bold for headings */
+  color: inherit; /* Inherit color unless overridden */
+}

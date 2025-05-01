@@ -1,0 +1,85 @@
+/* Main container for juices */
+.mainJuices {
+    padding: 3rem 0 4rem 0; /* Padding top and bottom */
+    background-color: #ffffff; /* Keep white background for this page */
+}
+
+.juicesContainer {
+    max-width: 1000px; /* Content width */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Main Page Title */
+.juicesContainer h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #059212; /* Primary green */
+    text-align: center;
+    margin-bottom: 1rem; /* Less space below title */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+/* Intro Text */
+.introText {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 3rem;
+}
+
+/* Brand List Styling */
+.brandListContainer {
+    background-color: #f8f9fa; /* Light grey background for list area */
+    padding: 2rem 2.5rem; /* Padding around list */
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.brandList {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+    columns: 3; /* Create 3 columns */
+    column-gap: 2.5rem; /* Gap between columns */
+    font-size: 1rem;
+}
+
+.brandList li {
+    margin-bottom: 0.8rem; /* Space between items */
+    color: #333;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed #ddd; /* Subtle separator */
+    /* Prevent items breaking across columns */
+    break-inside: avoid-column;
+    page-break-inside: avoid; 
+}
+
+/* Responsive adjustments for columns */
+@media (max-width: 768px) {
+    .brandList {
+        columns: 2; /* 2 columns on medium screens */
+        column-gap: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .brandList {
+        columns: 1; /* Single column on small screens */
+    }
+    .brandListContainer {
+        padding: 1.5rem;
+    }
+    .juicesContainer h1 {
+        font-size: 2.2rem;
+    }
+    .introText {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+} 

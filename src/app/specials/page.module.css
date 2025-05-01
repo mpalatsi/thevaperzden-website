@@ -1,0 +1,89 @@
+/* Main container for specials */
+.mainSpecials {
+    padding: 3rem 0; /* Padding top and bottom */
+    background-color: #f8f9fa; /* Use light grey like homepage alt section */
+}
+
+.specialsContainer {
+    max-width: 1000px; /* Content width */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Main Page Title */
+.specialsContainer h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #059212; /* Primary green */
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+/* Individual Special Section */
+.specialSection {
+    background-color: #ffffff; /* White background for sections */
+    padding: 2rem 2.5rem; /* Padding within sections */
+    margin-bottom: 2.5rem; /* Space between sections */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e9ecef;
+}
+
+.specialSection h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333; /* Dark heading */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #059212; /* Green underline */
+    display: inline-flex; /* Fit width to content + icon */
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Individual Item within a Section */
+.specialItem {
+    margin-bottom: 1rem; /* Space below items if multiple */
+}
+
+.specialItem:last-child {
+    margin-bottom: 0;
+}
+
+.specialItem h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #059212; /* Green item title */
+    margin-bottom: 0.5rem;
+}
+
+.specialItem p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-weight: bold;
+    color: #d9534f; /* Reddish color for price */
+    font-size: 1.1rem;
+    margin-top: 0.8rem;
+}
+
+/* Membership Info Specific Styles */
+.membershipInfo ul {
+    list-style: disc; /* Use standard bullets */
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    color: #555;
+}
+
+.membershipInfo li {
+    margin-bottom: 0.5rem;
+} 
